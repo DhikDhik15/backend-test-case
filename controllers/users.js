@@ -6,8 +6,7 @@ exports.createUser = async (req, res) => {
     try {
         const add = {
             name: req.body.name,
-            code: generateRandomString(4),
-            status: 1,
+            code: generateRandomString(4)
         };
 
         function generateRandomString(length, characters) {

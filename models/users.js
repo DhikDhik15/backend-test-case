@@ -10,8 +10,8 @@ const memberSchema = new Schema({
         type: String
     },
     status: {
-        type: String,
-        unique: true
+        type: 'number',
+        default: ''
     }
 },{
     timestamps: true
