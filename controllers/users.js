@@ -6,7 +6,7 @@ exports.createUser = async (req, res) => {
     try {
         const add = {
             name: req.body.name,
-            codeName: generateRandomString(4),
+            code: generateRandomString(4),
             status: 1,
         };
 
