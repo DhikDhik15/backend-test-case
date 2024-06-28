@@ -6,6 +6,9 @@ const app = express();
 const dotenv = require("dotenv");
 const mongoose = require("mongoose");
 dotenv.config();
+const swaggerUi = require('swagger-ui-express');
+const swaggerJSDoc = require('swagger-jsdoc');
+const apiDocumentation = require('./documentation.json');
 
 /*parse requests of content-type - application/json*/
 app.use(express.json());
@@ -16,6 +19,20 @@ app.use(
         extended: true,
     })
 );
+
+/*Conf SWAGGER*/
+const swaggerOptions = {
+    swaggerDefinition: {
+        info: {
+            title: 'Documentation',
+            version: '1.0.0'
+        }
+    },
+    apis: ['index.js']
+};
+
+const swaggerDocs = swaggerJSDoc(swaggerOptions);
+app.use('/documentation', swaggerUi.serve, swaggerUi.setup(apiDocumentation))
 
 // define port
 const SERVICE = process.env.PORT;
