@@ -34,6 +34,10 @@ const swaggerOptions = {
 const swaggerDocs = swaggerJSDoc(swaggerOptions);
 app.use('/documentation', swaggerUi.serve, swaggerUi.setup(apiDocumentation))
 
+// define routes
+var route = require('./routes/route');
+route(app);
+
 // define port
 const SERVICE = process.env.PORT;
 app.listen(SERVICE, () => {
