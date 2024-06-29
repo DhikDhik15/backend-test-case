@@ -17,9 +17,9 @@ exports.borrow = async (req, res) => {
         if (check != null && check.status != 3) {          
             // check count books
             if (books <= 2) {
-                    // const create = await Transactions.createTransactions({
-                    //     ...data
-                    // });
+                    const create = await Transactions.createTransactions({
+                        ...data
+                    });
                 
                 const updateStock = await Transactions.updateStock({
                     ...data.book_id
