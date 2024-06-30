@@ -27,3 +27,33 @@ exports.updateStock = async books => {
 
     return
 }
+
+exports.return = async (member, books) => {
+    const transactions = await Transactions.find({
+        user_id: member
+    })
+
+    for (const book in books) {
+        if (books.hasOwnProperty(book)) {
+            const id = books[book].id;
+            const dataBook = await Book.findById(id);
+            if (transactions[0].book_id[0].id == id) {
+
+                await dataBook.updateOne({
+                    stock: dataBook.stock + 1
+                })
+
+                transactions.map(item => {
+                    return {
+                        ...item,
+                        book_id: item.book_id.map(book => {
+                            if (book.id === id) {
+                                return { ...book, status:2}
+                            }
+                        })
+                    };
+                })
+            }
+        }
+    }
+}

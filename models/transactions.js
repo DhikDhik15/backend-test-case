@@ -7,12 +7,18 @@ const transactionSchema = new Schema({
     },
     book_id: {
         type: 'array',
-        ref: 'book'
+        ref: 'book',
+        status: {
+            type:'number'        },
+    },
+    date: {
+        type: 'date',
+        deafault: Date.now()
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
-    }
+    },
 },{
     timestamps: true
 });

@@ -9,4 +9,6 @@ module.exports = function (app) {
     app.route('/book-rent/register').post(member.createUser);
     app.route('/book-rent/add-book').post(books.createBook);
     app.route('/book-rent/borrow').post(transactions.borrow);
+
+    app.route('/book-return/:id').get(transactions.return);
 }
