@@ -13,3 +13,8 @@ exports.update = async id => {
     })
     return
 }
+
+exports.getMembers = async () => {
+    const results = await Member.find()
+    return results;
+}

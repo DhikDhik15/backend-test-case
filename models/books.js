@@ -15,7 +15,11 @@ const bookSchema = new Schema({
     },
     stock: {
         type: 'number',
-    }
+    },
+    transactions: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'transactions'
+    },
 },{
     timestamps: true
 });

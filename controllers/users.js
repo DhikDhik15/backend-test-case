@@ -36,3 +36,20 @@ exports.createUser = async (req, res) => {
         })
     }
 }
+
+exports.getMembers = async (req, res) => {
+    try {
+
+        const members = await User.getMembers()
+        res.status(200).json({
+            status: true,
+            message: 'get member successfully',
+            data: members,
+        })
+    } catch (error) {
+        res.status(500).json({
+            error: error,
+            status: false,
+        })
+    }
+}

@@ -21,7 +21,23 @@ exports.createBook = async (req, res) => {
             data: create,
         })
     } catch (error) {
-        console.log(error)
+        res.status(500).json({
+            error: error,
+            status: false,
+        })
+    }
+}
+
+exports.getBooks = async (req, res) => {
+    try {
+
+        const books = await Book.getBooks()
+        res.status(200).json({
+            status: true,
+            message: 'get book successfully',
+            data: books,
+        })
+    } catch (error) {
         res.status(500).json({
             error: error,
             status: false,
