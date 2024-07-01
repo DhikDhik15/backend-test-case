@@ -3,5 +3,159 @@
     "info": {
         "title": "DOCUMENTATION BACKEND",
         "version": "1.0.0"
+    },
+    "paths": {
+        "/register":{
+            "post": {
+                "tags":[
+                    "REGISTER"
+                ],
+                "consumes": "application/json",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/member":{
+            "get":{
+                "tags":["MEMBER"],
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+
+        "/add-book":{
+            "post": {
+                "tags":[
+                    "BOOK"
+                ],
+                "consumes": "application/json",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "title": {
+                                        "type": "string"
+                                    },
+                                    "code": {
+                                        "type": "string"
+                                    },
+                                    "author": {
+                                        "type": "string"
+                                    },
+                                    "stock": {
+                                        "type": "number"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/book":{
+            "get":{
+                "tags":["BOOK"],
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    }
+                }
+            }
+        },
+
+        "/borrow":{
+            "post": {
+                "tags":[
+                    "TRANSACTIONS"
+                ],
+                "consumes": "application/json",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "user": {
+                                        "type": "string"
+                                    },
+                                    "books": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "success"
+                    },
+                    "500": {
+                        "description": "Failed !!"
+                    }
+                }
+            }
+        },
+
+        "/book-return/:id":{
+            "get":{
+                "tags":["TRANSACTIONS"],
+                "consumes": "application/json",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "books": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200":{
+                        "description": "Success"
+                    }
+                }
+            }
+        }
     }
 }
